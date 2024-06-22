@@ -3,7 +3,7 @@
 
 <p align="center">
   <br>
-  <img width="300" src="https://images.spr.so/cdn-cgi/imagedelivery/j42No7y-dcokJuNgXeA0ig/b1963dcf-1ef1-4ae7-9c55-561f4d9451af/demo/w=3840,quality=90,fit=scale-down" alt="logo of demos repository">
+  <img width="300" src="/repo-icon.png" alt="logo of demos repository">
   <br>
   <br>
 </p>
