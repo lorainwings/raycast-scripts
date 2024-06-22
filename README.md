@@ -3,7 +3,7 @@
 
 <p align="center">
   <br>
-  <img width="300" src="/repo-icon.png" alt="logo of demos repository">
+  <img width="600" src="/repo-icon.png" alt="logo of demos repository">
   <br>
   <br>
 </p>
