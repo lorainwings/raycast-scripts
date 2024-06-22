@@ -8,7 +8,7 @@
   <br>
 </p>
 
-<h3 align='center'>This Repo puts the Raycast script commands </h3>
+<h3 align='center'>Raycast Script Commands Repo</h3>
 <br>
 <br>
 
