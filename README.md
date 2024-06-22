@@ -3,14 +3,13 @@
 
 <p align="center">
   <br>
-  <img width="600" src="/repo-icon.png" alt="logo of demos repository">
+  <img width="500" src="/repo-icon.png" alt="logo of demos repository">
   <br>
   <br>
 </p>
 
-<p align='center'>
-This Repo puts the Raycast script commands
-<br><br>
-</p>
+<h3 align='center'>This Repo puts the Raycast script commands </h3>
+<br>
+<br>
 
 If you want to know more about Raycast Script Command, please refer to [getting-started-with-script-commands](https://www.raycast.com/blog/getting-started-with-script-commands)
