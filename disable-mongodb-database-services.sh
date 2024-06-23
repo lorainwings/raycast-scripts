@@ -7,6 +7,7 @@
 
 # Optional parameters:
 # @raycast.icon 🚫
+# @raycast.argument1 { "type": "password", "placeholder": "Enter Password" }
 # @raycast.packageName Disable Mongodb Database Services
 # @raycast.needsConfirmation false
 
@@ -18,10 +19,11 @@ set -e
 
 echo "🚫 Disable MongoDB Database Services!";
 
+PASSWORD=$1
 port=$(pgrep mongod)
 
 if [ -n "$port" ]; then
-    kill -9 $port
+    echo $PASSWORD | sudo -S kill -9 $port
     echo "✅ MongoDB Database Services Disabled!";
 else
     echo "🚧 MongoDB Database Services Not Running!"
