@@ -7,6 +7,7 @@
 
 # Optional parameters:
 # @raycast.icon 🥡
+# @raycast.argument1 { "type": "password", "placeholder": "Enter Password" }
 # @raycast.packageName Clean DNS Cache
 # @raycast.needsConfirmation true
 
@@ -18,8 +19,10 @@ set -e
 
 echo "🥡 Clean DNS cache of the system!"
 
-sudo killall -HUP mDNSResponder;
-sudo killall mDNSResponderHelper;
-sudo dscacheutil -flushcache;
+PASSWORD=$1
+
+echo $PASSWORD | sudo -S killall -HUP mDNSResponder;
+echo $PASSWORD | sudo -S killall mDNSResponderHelper;
+echo $PASSWORD | sudo -S dscacheutil -flushcache;
 
 echo "✅ Clean Task Done!";
