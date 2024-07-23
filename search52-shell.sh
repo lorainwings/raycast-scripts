@@ -3,7 +3,7 @@
 # Required parameters:
 # @raycast.schemaVersion 1
 # @raycast.title Search 52Pojie Shell
-# @raycast.mode compact
+# @raycast.mode silent
 
 # Optional parameters:
 # @raycast.icon 🍭
@@ -22,6 +22,12 @@ keyword="$1"
 cookie="$2"
 searchURL="https://www.52pojie.cn/search.php?mod=forum"
 
+catch() {
+  echo "🔴 $1"
+  open -na "Google Chrome" --args --new-window "https://www.bing.com/search?q=site%3A52pojie.cn%20$keyword"
+  exit 1
+}
+
 check() {
   # -n 检查字符串是否不为空, 不为空进入条件
   if [[ -n "$cookie" ]]; then
@@ -33,8 +39,7 @@ check() {
     fi
     # -z 检查字符串是否为空, 空值进入条件
     if [[ -z "$cookie" ]]; then
-      echo "🔴 请提供Cookie参数!"
-      exit 1
+      catch "🔴 请提供Cookie参数!"
     fi
   fi
 }
@@ -43,8 +48,7 @@ getFormHash() {
   html=$(curl -sS "$searchURL" -b "$cookie")
   hash=$(echo "$html" | LC_ALL=C IGNORECASE=1 sed -n 's/.*name="formhash" value="\([^"]*\)".*/\1/p')
   if [[ -z "$hash" ]]; then
-    echo "🚨 获取formhash失败!"
-    exit 1
+    catch "🚨 获取formhash失败!"
   fi
   echo "$hash"
 }
@@ -65,8 +69,7 @@ getSearchId() {
   location=$(echo "$header" | grep -i 'location:' | sed -n 's/.*location:\s*\(.*\)/\1/p')
   searchid=$(echo "$location" | grep -o 'searchid=[0-9]*' | sed 's/searchid=//')
   if [[ -z "$searchid" ]]; then
-    echo "🚨 获取searchid失败!"
-    exit 1
+    catch "🚨 获取searchid失败!"
   fi
   echo "$searchid"
 }
@@ -80,4 +83,3 @@ main() {
 }
 
 main
-
