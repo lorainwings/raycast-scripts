@@ -40,6 +40,10 @@ check() {
 
 check
 
+export LC_ALL="en_US.UTF-8"
+
 redis-server /etc/redis/6379.conf
+
+unset LC_ALL
 
 echo "✅ Redis Database Services Enabled!"
