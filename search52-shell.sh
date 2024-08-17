@@ -16,6 +16,8 @@
 # @raycast.author wings_lorain
 # @raycast.authorURL https://raycast.com/wings_lorain
 
+# debug mode
+# set -x
 set -e
 
 keyword="$1"
@@ -25,7 +27,7 @@ searchURL="https://www.52pojie.cn/search.php?mod=forum"
 catch() {
   echo "🔴 $1"
   open -na "Google Chrome" --args --new-window "https://www.bing.com/search?q=$keyword++site%3Awww.52pojie.cn"
-  exit 1
+  return 1
 }
 
 check() {
@@ -40,6 +42,7 @@ check() {
     # -z 检查字符串是否为空, 空值进入条件
     if [[ -z "$cookie" ]]; then
       catch "🔴 请提供Cookie参数!"
+      exit 1
     fi
   fi
 }
@@ -49,6 +52,7 @@ getFormHash() {
   hash=$(echo "$html" | LC_ALL=C IGNORECASE=1 sed -n 's/.*name="formhash" value="\([^"]*\)".*/\1/p')
   if [[ -z "$hash" ]]; then
     catch "🚨 获取formhash失败!"
+    exit 1
   fi
   echo "$hash"
 }
@@ -70,6 +74,7 @@ getSearchId() {
   searchid=$(echo "$location" | grep -o 'searchid=[0-9]*' | sed 's/searchid=//')
   if [[ -z "$searchid" ]]; then
     catch "🚨 获取searchid失败!"
+    exit 1
   fi
   echo "$searchid"
 }
