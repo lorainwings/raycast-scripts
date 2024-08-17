@@ -24,7 +24,7 @@ searchURL="https://www.52pojie.cn/search.php?mod=forum"
 
 catch() {
   echo "🔴 $1"
-  open -na "Google Chrome" --args --new-window "https://www.bing.com/search?q=site%3A52pojie.cn%20$keyword"
+  open -na "Google Chrome" --args --new-window "https://www.bing.com/search?q=$keyword++site%3Awww.52pojie.cn"
   exit 1
 }
 
