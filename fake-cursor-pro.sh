@@ -2,7 +2,7 @@
 
 # Required parameters:
 # @raycast.schemaVersion 1
-# @raycast.title Renewal Cursor Pro
+# @raycast.title Fake Cursor Vip
 # @raycast.mode compact
 
 # Optional parameters:
