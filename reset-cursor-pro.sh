@@ -2,15 +2,17 @@
 
 # Required parameters:
 # @raycast.schemaVersion 1
-# @raycast.title Fake Cursor Vip
+# @raycast.title Reset Cursor Vip
 # @raycast.mode compact
 
 # Optional parameters:
 # @raycast.icon ⚙️
-# @raycast.packageName Fake Cursor Pro Vip
+# @raycast.argument1 { "type": "password", "placeholder": "Enter Password", "optional": true }
+# @raycast.packageName Reset Cursor Pro Vip
+# @raycast.needsConfirmation false
 
 # Documentation:
-# @raycast.description Fake Cursor Pro Vip
+# @raycast.description Reset Cursor Pro Vip
 # @raycast.author wings_lorain
 # @raycast.authorURL https://raycast.com/wings_lorain
 
@@ -38,7 +40,8 @@ check() {
 }
 
 main() {
-  echo $token | curl -fsSL https://raw.githubusercontent.com/yuaotian/go-cursor-help/master/scripts/install.sh | sudo -S bash
+  # echo $token | curl -fsSL https://raw.githubusercontent.com/yuaotian/go-cursor-help/master/scripts/install.sh | sudo -S bash
+  echo $token | sudo -S open ./helper/cursor.sh
 }
 
 check
