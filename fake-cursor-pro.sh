@@ -2,21 +2,23 @@
 
 # Required parameters:
 # @raycast.schemaVersion 1
-# @raycast.title Fake Cursor Vip
+# @raycast.title Cursor Free Vip
 # @raycast.mode compact
 
 # Optional parameters:
 # @raycast.icon ⚙️
-# @raycast.packageName Fake Cursor Pro Vip
+# @raycast.argument1 { "type": "password", "placeholder": "Enter Password", "optional": true }
+# @raycast.packageName Cursor Free Vip
+# @raycast.needsConfirmation false
 
 # Documentation:
-# @raycast.description Fake Cursor Pro Vip
+# @raycast.description Cursor Free Vip
 # @raycast.author wings_lorain
 # @raycast.authorURL https://raycast.com/wings_lorain
 
 set -e
 
-echo "⚙️ Start to Fake Cursor VIP!"
+echo "⚙️ Start to Cursor Free VIP!"
 
 token=$1
 
@@ -38,11 +40,11 @@ check() {
 }
 
 main() {
-  echo $token | curl -fsSL https://raw.githubusercontent.com/yuaotian/go-cursor-help/master/scripts/install.sh | sudo -S bash
+  open "$(dirname "$0")/helper/cursor-free-vip.sh"
 }
 
 check
 
 main
 
-echo "✅ Fake Cursor Vip Done!"
+echo "✅ Cursor Free Vip Done!"
