@@ -40,7 +40,8 @@ check() {
 }
 
 main() {
-  open "$(dirname "$0")/helper/cursor-free-vip.sh"
+  # echo $token | curl -fsSL https://raw.githubusercontent.com/yuaotian/go-cursor-help/master/scripts/install.sh | sudo -S bash
+  echo $token | sudo -S open ./helper/cursor-free-vip.sh
 }
 
 check
